@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Button from "react-bootstrap/Button"
+import MyTable from "./MyTable"
+import { PacketContext, LoadPacket } from "./PacketContext"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    console.log("")
+    return (
+        <PacketContext.Provider value={PacketContext}>
+            <div className="App">
+                <Button onClick={LoadPacket}>321</Button>
+
+                <MyTable
+                    packets={[
+                        "elment0",
+                        "elemrnt1sdfdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+                    ]}
+                ></MyTable>
+            </div>
+        </PacketContext.Provider>
+    )
 }
 
-export default App;
+export default App
