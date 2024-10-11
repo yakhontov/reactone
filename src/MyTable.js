@@ -1,5 +1,7 @@
+import React, { useContext } from "react"
 import Table from "react-bootstrap/Table"
 import "./App.css"
+import { PacketContext, LoadPacket } from "./PacketContext"
 
 function MyRow(props) {
     return (
@@ -13,9 +15,11 @@ function MyRow(props) {
 // Fixed header
 // https://github.com/mdbootstrap/bootstrap-table-fixed-header
 export default function MyTable(props) {
+    const value = useContext(PacketContext)
     console.log(props)
+    console.log(value)
     return (
-        <div>
+        <div class="object-fit-fill">
             <Table striped hover responsive="sm">
                 <thead>
                     <tr>
@@ -24,13 +28,8 @@ export default function MyTable(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.packets.map((element) => {
-                        return (
-                            <MyRow
-                                dateTime="2354"
-                                packet={element.toString()}
-                            />
-                        )
+                    {props.packets.map((element, index) => {
+                        return <MyRow key={index} dateTime="2354" packet={element.toString()} />
                     })}
                 </tbody>
             </Table>
