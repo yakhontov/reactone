@@ -2,6 +2,10 @@ import { PacketContext, LoadPacket } from "./PacketContext"
 import Button from "react-bootstrap/Button"
 import MyTable from "./MyTable"
 import MyNavbar from "./MyNavbar"
+import Container from "react-bootstrap/Container"
+import Placeholder from "react-bootstrap/Placeholder"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 async function f() {
     // Ошибка подключения из-за CORS
@@ -25,54 +29,34 @@ function App() {
     // console.log("")
     return (
         // <PacketContext.Provider value={{ str: "Hello, world" }}>
-        <div className="App container-fluid h-100">
-            {/* <div class="container-fluid"> */}
-            <MyNavbar></MyNavbar>
-            {/* </div> */}
-            <div class="row ">
-                <div class="col h-100">
-                    <MyTable
-                        packets={[
-                            "elment0",
-                            "elemrnt1",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                            "element",
-                        ]}
-                    ></MyTable>
-                </div>
-                <div class="col">
-                    {/* <div style={"height: 100px; background-color: rgba(255,0,0,0.1);"}>
-                        <div class="h-25 d-inline-block" style={"width: 120px; background-color: rgba(0,0,255,.1)"}>
-                            Height 25%
-                        </div>
-                    </div> */}
-                </div>
-            </div>
+        <div className="App">
+            <MyNavbar />
+            <Placeholder className="w-100" />
+
+            {/*<Container fluid full-height>
+                <Row className="w-100 h-100">
+                    <Col>
+                        <Placeholder className="w-100 h-100" />
+                    </Col>
+                    <Col>
+                        <Placeholder className="w-100 h-100" />
+                    </Col>
+                </Row>
+            </Container> */}
+            {/* <Container fluid className="  w-100 h-100">
+                <Row className="w-100 h-100">
+                    <Col className="w-100 h-100">
+                        <MyTable
+                            packets={Array(30)
+                                .fill(null)
+                                .map((element, index) => "string " + index)}
+                        ></MyTable>
+                    </Col>
+                    <Col>
+                        <Placeholder className="w-100 h-100" />
+                    </Col>
+                </Row>
+            </Container> */}
         </div>
         // </PacketContext.Provider>
     )

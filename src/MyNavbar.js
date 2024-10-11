@@ -10,6 +10,8 @@ import Navbar from "react-bootstrap/Navbar"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import InputGroup from "react-bootstrap/InputGroup"
+import DropdownItemText from "react-bootstrap/DropdownItemText"
+//import DropDownText from "react-bootstrap-text-dropdown"
 
 function MyNavbar() {
     return (
