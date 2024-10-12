@@ -29,9 +29,12 @@ function App() {
     // console.log("")
     return (
         // <PacketContext.Provider value={{ str: "Hello, world" }}>
-        <div className="App">
+        <div className="App full-screen">
             <MyNavbar />
-            <Placeholder className="w-100" />
+            <div class="full-screen">
+                {/* <Button>Button</Button> */}
+                {/* <Placeholder className="w-100" /> */}
+            </div>
 
             {/*<Container fluid full-height>
                 <Row className="w-100 h-100">

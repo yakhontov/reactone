@@ -12,18 +12,39 @@
                 background-color: bisque;
             }
             .full-screen {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                /* display: flex; */
+                /* justify-content: center; */
                 height: 100%;
-                background-color: #f8f9fa;
+                width: 100%;
+                /* width: 100%; */
+                /* background-color: #244f7a; */
+            }
+
+            .parent {
+                height: 100vh;
+                display: flex;
+                /* align-items: stretch; */
+            }
+            .child {
+                /* flex: 1; */
+                background-color: #8db0a0;
             }
         </style>
     </head>
+
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div class="container-fluid full-screen">
-            <div id="root" class="content"></div>
+        <div id="root" class="full-screen container-fluid">
+            <!-- <div id="root"></div> -->
+            <!-- class="content" -->
         </div>
     </body>
+
+    <!-- <body>
+        <div class="container-fluid parent">
+            <div>
+                <h1>Контент ребенка, который заполняет родителя по высоте</h1>
+            </div>
+        </div>
+    </body> -->
 </html>
