@@ -22,22 +22,55 @@
 
             .parent {
                 height: 100vh;
-                display: flex;
-                /* align-items: stretch; */
+                /* display: flex; */
+                align-items: stretch;
             }
             .child {
-                /* flex: 1; */
-                background-color: #8db0a0;
+                flex: 1;
+                height: 100%;
+                width: 100%;
+            }
+
+            #root {
+                width: 100%;
+                height: 100%;
+            }
+
+            nav {
+                background: pink;
+            }
+
+            footer {
+                background: green;
+            }
+
+            main {
+                background: yellow;
+                flex: 1;
+            }
+
+            .wrapper {
+                background: lightblue;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
             }
         </style>
     </head>
 
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root" class="full-screen container-fluid">
-            <!-- <div id="root"></div> -->
-            <!-- class="content" -->
+
+        <div id="root">
+            <div class="wrapper">
+                <nav>navbar</nav>
+                <main>body</main>
+                <footer>footer</footer>
+            </div>
         </div>
+
+        <!-- <div id="root" class="parent"></div> -->
     </body>
 
     <!-- <body>

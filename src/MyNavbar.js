@@ -15,7 +15,8 @@ import DropdownItemText from "react-bootstrap/DropdownItemText"
 
 function MyNavbar() {
     return (
-        <div className="sticky-top ">
+        // <div className="sticky-top ">
+        <div>
             <Navbar className="bg-body-tertiary justify-content-between">
                 <Form>
                     <InputGroup>
@@ -38,10 +39,10 @@ function MyNavbar() {
                     </InputGroup>
                 </Form>
                 <Form>
-                    {/* <Button type="submit">Update</Button> */}
                     <Button variant="primary">Update</Button>
                 </Form>
-                {/* <Form style={{ flex: 1 }}>
+            </Navbar>
+            {/* <Form style={{ flex: 1 }}>
                     <InputGroup>
                         <InputGroup.Text>Command:</InputGroup.Text>
                         <Form.Control
@@ -52,7 +53,6 @@ function MyNavbar() {
                         <Button variant="secondary">Send</Button>
                     </InputGroup>
                 </Form> */}
-            </Navbar>
         </div>
     )
 }

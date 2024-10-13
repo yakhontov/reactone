@@ -28,12 +28,26 @@ async function f() {
 function App() {
     // console.log("")
     return (
+        <div className="parent">
+            <div>
+                <h1>Text1</h1>
+            </div>
+            <div className="child">
+                <h2>Text2</h2>
+            </div>
+        </div>
+    )
+    return (
         // <PacketContext.Provider value={{ str: "Hello, world" }}>
-        <div className="App full-screen">
+        <div className="App ">
+            {/* full-screen */}
             <MyNavbar />
-            <div class="full-screen">
-                {/* <Button>Button</Button> */}
-                {/* <Placeholder className="w-100" /> */}
+            {/* <div className="h-100"> */}
+            <div>
+                {/* <div className="child"> */}
+                {/* <Placeholder className="full-screen" style={{ "background-color": "Khaki" }} /> */}
+                {/* <Placeholder className="full-screen" style={{ "background-color": "red" }} /> */}
+                <h1>Контент ребенка, который заполняет родителя по высоте</h1>
             </div>
 
             {/*<Container fluid full-height>
