@@ -12,6 +12,9 @@ function MyRow(props) {
     )
 }
 
+// Create an HTML Table with Fixed Header and Scrollable Body
+// https://wpdatatables.com/html-table-with-fixed-header-and-scrollable-body/
+
 // Fixed header
 // https://github.com/mdbootstrap/bootstrap-table-fixed-header
 export default function MyTable(props) {
@@ -19,20 +22,19 @@ export default function MyTable(props) {
     console.log(props)
     console.log(value)
     return (
-        <div class="object-fit-fill">
-            <Table striped hover responsive="sm">
-                <thead>
-                    <tr>
-                        <th>Date, time (UTC)</th>
-                        <th>Coordinates, RAW packet</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {props.packets.map((element, index) => {
-                        return <MyRow key={index} dateTime="2354" packet={element.toString()} />
-                    })}
-                </tbody>
-            </Table>
-        </div>
+        // <Table striped hover responsive="sm">
+        <Table striped>
+            <thead>
+                <tr>
+                    <th>Date, time (UTC)</th>
+                    <th>Coordinates, RAW packet</th>
+                </tr>
+            </thead>
+            <tbody>
+                {props.packets.map((element, index) => {
+                    return <MyRow key={index} dateTime="2354" packet={element.toString()} />
+                })}
+            </tbody>
+        </Table>
     )
 }

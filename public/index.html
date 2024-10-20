@@ -5,79 +5,42 @@
         <title>Cell-based geolocation</title>
 
         <style>
-            body,
-            html {
-                height: 100%;
-                margin: 0;
-                background-color: bisque;
-            }
-            .full-screen {
-                /* display: flex; */
-                /* justify-content: center; */
-                height: 100%;
-                width: 100%;
-                /* width: 100%; */
-                /* background-color: #244f7a; */
-            }
-
-            .parent {
-                height: 100vh;
-                /* display: flex; */
-                align-items: stretch;
-            }
-            .child {
-                flex: 1;
-                height: 100%;
-                width: 100%;
-            }
-
+            /* https://dev.to/hmintoh/setting-child-container-fill-parent-container-s-width-and-height-1gdf */
             #root {
                 width: 100%;
                 height: 100%;
-            }
-
-            nav {
                 background: pink;
             }
 
-            footer {
-                background: green;
-            }
-
-            main {
-                background: yellow;
-                flex: 1;
-            }
-
-            .wrapper {
+            .wrapper,
+            .App {
                 background: lightblue;
                 width: 100vw;
                 height: 100vh;
                 display: flex;
                 flex-direction: column;
+                /* overflow: auto; */
+            }
+
+            .row {
+                /* display: flex; */
+                flex: 1;
+                /* overflow: scroll; */
+            }
+
+            .column {
+                flex: 50%;
+                /* overflow: auto; */
+            }
+
+            .table {
+                max-height: 300px;
             }
         </style>
     </head>
 
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
-
-        <div id="root">
-            <div class="wrapper">
-                <nav>navbar</nav>
-                <main>body</main>
-                <footer>footer</footer>
-            </div>
-        </div>
-
-        <!-- <div id="root" class="parent"></div> -->
+        <div id="root"></div>
     </body>
-
-    <!-- <body>
-        <div class="container-fluid parent">
-            <div>
-                <h1>Контент ребенка, который заполняет родителя по высоте</h1>
-            </div>
-        </div>
-    </body> -->
 </html>

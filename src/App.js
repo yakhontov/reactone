@@ -26,29 +26,29 @@ async function f() {
 }
 
 function App() {
-    // console.log("")
-    return (
-        <div className="parent">
-            <div>
-                <h1>Text1</h1>
-            </div>
-            <div className="child">
-                <h2>Text2</h2>
-            </div>
-        </div>
-    )
+    // return (
+    //     <div class="wrapper">
+    //         <nav>navbar</nav>
+    //         <main>body</main>
+    //         <footer>footer</footer>
+    //     </div>
+    // )
     return (
         // <PacketContext.Provider value={{ str: "Hello, world" }}>
         <div className="App ">
-            {/* full-screen */}
             <MyNavbar />
-            {/* <div className="h-100"> */}
-            <div>
-                {/* <div className="child"> */}
-                {/* <Placeholder className="full-screen" style={{ "background-color": "Khaki" }} /> */}
-                {/* <Placeholder className="full-screen" style={{ "background-color": "red" }} /> */}
-                <h1>Контент ребенка, который заполняет родителя по высоте</h1>
+            <div className="row">
+                <div className="column">Some text</div>
+                <div className="column">
+                    {/* Some text2 */}
+                    <MyTable
+                        packets={Array(30)
+                            .fill(null)
+                            .map((element, index) => "string " + index)}
+                    ></MyTable>
+                </div>
             </div>
+            {/* <main>body</main> */}
 
             {/*<Container fluid full-height>
                 <Row className="w-100 h-100">
