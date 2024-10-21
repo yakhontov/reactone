@@ -11,8 +11,6 @@ import MyRow from "./MyRow"
 //
 export default function MyTable(props) {
     const value = useContext(PacketContext)
-    console.log(props)
-    console.log(value)
     return (
         <Table striped>
             <thead>
@@ -23,8 +21,11 @@ export default function MyTable(props) {
             </thead>
             <tbody>
                 {props.packets.map((element, index) => {
-                    return <MyRow key={index} dateTime="2354" packet={element.toString()} />
+                    return <MyRow key={index} packet={element} />
                 })}
+                {/* {props.packets.map((element, index) => {
+                    return <MyRow key={index} dateTime="2354" packet={element.toString()} />
+                })} */}
             </tbody>
         </Table>
 
