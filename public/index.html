@@ -4,39 +4,95 @@
         <meta charset="utf-8" />
         <title>Cell-based geolocation</title>
 
+        <!-- https://dev.to/hmintoh/setting-child-container-fill-parent-container-s-width-and-height-1gdf         -->
         <style>
-            /* https://dev.to/hmintoh/setting-child-container-fill-parent-container-s-width-and-height-1gdf */
             #root {
+                background: rgb(211, 208, 235);
                 width: 100%;
                 height: 100%;
-                background: pink;
             }
 
-            .wrapper,
-            .App {
-                background: lightblue;
-                width: 100vw;
+            #nav {
+                background: rgb(213, 133, 133);
+            }
+
+            table {
+                background: rgb(233, 233, 151);
+                flex: 1;
+            }
+
+            #footer {
+                background: rgb(148, 209, 148);
+            }
+
+            #wrapper {
+                background: rgb(239, 190, 243);
+                /* width: 100vw; */
                 height: 100vh;
                 display: flex;
                 flex-direction: column;
-                /* overflow: auto; */
-            }
-
-            .row {
-                /* display: flex; */
-                flex: 1;
-                /* overflow: scroll; */
-            }
-
-            .column {
-                flex: 50%;
-                /* overflow: auto; */
-            }
-
-            .table {
-                max-height: 300px;
             }
         </style>
+
+        <!-- https://wpdatatables.com/html-table-with-fixed-header-and-scrollable-body/ -->
+        <style>
+            table {
+                /* width: 100%; */
+                height: 100%;
+                border-collapse: collapse;
+            }
+            .header th {
+                background-color: #f4f4f4;
+                font-weight: bold;
+                padding: 10px;
+            }
+            .fixed-header thead {
+                position: sticky;
+                top: 0;
+                z-index: 1;
+            }
+            .scrollable {
+                display: block;
+                /* overflow: scroll; */
+
+                overflow-y: scroll;
+                /* max-height: 500px; */
+            }
+        </style>
+        <!-- <style>
+            html,
+            body,
+            .intro {
+                height: 100%;
+            }
+
+            table td,
+            table th {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            thead th {
+                color: #920000;
+            }
+
+            .card {
+                border-radius: 0.5rem;
+            }
+
+            .table-scroll {
+                border-radius: 0.5rem;
+            }
+
+            .table-scroll table thead th {
+                font-size: 1.25rem;
+            }
+            thead {
+                top: 0;
+                position: sticky;
+            }
+        </style> -->
     </head>
 
     <body>
