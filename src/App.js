@@ -9,19 +9,22 @@ import Col from "react-bootstrap/Col"
 
 // Setting child container fill parent container's width and height
 // https://dev.to/hmintoh/setting-child-container-fill-parent-container-s-width-and-height-1gdf
-function App() {
+export default function App() {
     return (
-        <div id="wrapper">
-            {/* <MyNavbar /> */}
-            <div id="nav">Navbar</div>
-            <MyTable
-                packets={Array(30)
-                    .fill(null)
-                    .map((element, index) => "string " + index)}
-            ></MyTable>
-            <div id="footer">footer</div>
-        </div>
+        <>
+            <MyNavbar />
+            <Container fluid>
+                <Row>
+                    <Col>sdfgafg</Col>
+                    <Col>
+                        <MyTable
+                            packets={Array(50)
+                                .fill()
+                                .map((element, index) => "string " + index)}
+                        ></MyTable>
+                    </Col>
+                </Row>
+            </Container>
+        </>
     )
 }
-
-export default App
