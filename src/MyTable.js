@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import Table from "react-bootstrap/Table"
 import "./MyTable.css"
-import { PacketContext, LoadPacket } from "./PacketContext"
+import { PacketContext, LoadPackets } from "./PacketContext"
 import MyRow from "./MyRow"
 
 // Create an HTML Table with Fixed Header and Scrollable Body
@@ -10,6 +10,7 @@ import MyRow from "./MyRow"
 // Fixed header
 //
 export default function MyTable(props) {
+    LoadPackets()
     const value = useContext(PacketContext)
     return (
         <Table striped>
