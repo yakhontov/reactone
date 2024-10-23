@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import Table from "react-bootstrap/Table"
 import "./MyTable.css"
-import { PacketContext, LoadPackets } from "./PacketContext"
+import { PacketsContext, LoadPackets } from "./PacketContext"
 import MyRow from "./MyRow"
 
 // Create an HTML Table with Fixed Header and Scrollable Body
@@ -10,8 +10,7 @@ import MyRow from "./MyRow"
 // Fixed header
 //
 export default function MyTable(props) {
-    LoadPackets()
-    const value = useContext(PacketContext)
+    const { currentPackets, setCurrentPackets } = useContext(PacketsContext)
     return (
         <Table striped>
             <thead>
@@ -21,12 +20,9 @@ export default function MyTable(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.packets.map((element, index) => {
+                {currentPackets.map((element, index) => {
                     return <MyRow key={index} packet={element} />
                 })}
-                {/* {props.packets.map((element, index) => {
-                    return <MyRow key={index} dateTime="2354" packet={element.toString()} />
-                })} */}
             </tbody>
         </Table>
 

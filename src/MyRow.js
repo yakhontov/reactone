@@ -25,6 +25,13 @@ export default function MyRow(props) {
                     Unwiredlabs: {props.packet.unwiredlabscoords.toString()}
                 </span>
 
+                <img
+                    height="25px"
+                    src="./nodata.svg"
+                    alt="No data"
+                    hidden={props.packet.gnss.length + props.packet.celllocate.length + props.packet.nearestcellscoords + props.packet.unwiredlabscoords != 0}
+                />
+
                 {/* <span className="mybadge" style={{ backgroundColor: "#" + `${Math.floor(Math.random() * 16777215).toString(16)}` }}>
                     Opencellid: {props.packet.nearestcellscoords.toString() + "/" + props.packet.nearestcellscount.toString()}
                 </span> */}

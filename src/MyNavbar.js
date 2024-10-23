@@ -1,7 +1,6 @@
 import React, { useContext } from "react"
 import Table from "react-bootstrap/Table"
 import "./App.css"
-import { PacketContext, LoadPacket } from "./PacketContext"
 
 import "react-datetime/css/react-datetime.css"
 import Datetime from "react-datetime"
@@ -11,9 +10,22 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import InputGroup from "react-bootstrap/InputGroup"
 import DropdownItemText from "react-bootstrap/DropdownItemText"
+import { LoadPackets } from "./PacketContext"
+import { PacketsContext, LoadPacket, Packets } from "./PacketContext"
+
 //import DropDownText from "react-bootstrap-text-dropdown"
 
+async function OnUpdateBtnClick(setCurrentPackets) {
+    setCurrentPackets(
+        await LoadPackets({
+            devicename: "21_73",
+            limit: "10",
+        })
+    )
+}
+
 function MyNavbar() {
+    const { currentPackets, setCurrentPackets } = useContext(PacketsContext)
     return (
         // <div className="sticky-top ">
         <div>
@@ -33,13 +45,20 @@ function MyNavbar() {
                     </InputGroup>
                 </Form>
                 <Form>
-                    <InputGroup onFocus={console.log("on focus")}>
+                    <InputGroup>
                         <InputGroup.Text>Limit:</InputGroup.Text>
                         <Form.Control style={{ width: 100 }} defaultValue={"100"} />
                     </InputGroup>
                 </Form>
                 <Form>
-                    <Button variant="primary">Update</Button>
+                    <Button
+                        variant="primary"
+                        onClick={() => {
+                            OnUpdateBtnClick(setCurrentPackets)
+                        }}
+                    >
+                        Update
+                    </Button>
                 </Form>
             </Navbar>
             {/* <Form style={{ flex: 1 }}>
