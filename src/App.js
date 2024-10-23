@@ -6,12 +6,14 @@ import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet"
 import MyTable from "./MyTable"
 import MyNavbar from "./MyNavbar"
 import { PacketsContext, LoadPacket } from "./PacketContext"
+import { MyMap } from "./MyMap"
 
 // Setting child container fill parent container's width and height
 // https://dev.to/hmintoh/setting-child-container-fill-parent-container-s-width-and-height-1gdf
 export default function App() {
+    // TODO: Перенести этот контекст в MyTable и сделать setCurrentPackets глобальной для доступа из update button
     const [currentPackets, setCurrentPackets] = useState([])
-    console.log("currentPackets", currentPackets)
+    // console.log("currentPackets", currentPackets)
     return (
         <>
             <PacketsContext.Provider value={{ currentPackets, setCurrentPackets }}>
@@ -19,22 +21,7 @@ export default function App() {
                 <Container fluid>
                     <Row>
                         <Col>
-                            <MapContainer center={[29.794502, -95.370513]} zoom={13} scrollWheelZoom={true}>
-                                <TileLayer
-                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                />
-                                <Marker position={[29.794502, -95.370513]} title="asdjkg">
-                                    <Popup>
-                                        A pretty CSS3 popup. <br /> Easily customizable.
-                                    </Popup>
-                                </Marker>
-                                <Marker position={[29.797502, -95.371513]}>
-                                    <Popup>
-                                        A pretty CSS3 popup. <br /> Easily customizable.
-                                    </Popup>
-                                </Marker>
-                            </MapContainer>
+                            <MyMap />
                         </Col>
                         <Col>
                             <MyTable />

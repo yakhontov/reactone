@@ -19,7 +19,7 @@ async function OnUpdateBtnClick(setCurrentPackets) {
     setCurrentPackets(
         await LoadPackets({
             devicename: "21_73",
-            limit: "10",
+            limit: "50",
         })
     )
 }

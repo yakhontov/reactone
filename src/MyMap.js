@@ -1,30 +1,32 @@
-import React, { useContext } from "react"
-import MyRow from "./MyRow"
+import { createContext, useContext, useState } from "react"
+import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet"
 
-// Create an HTML Table with Fixed Header and Scrollable Body
-// https://wpdatatables.com/html-table-with-fixed-header-and-scrollable-body/
+var mapSetSelectedPacket = null
 
-// Fixed header
-//
-export default function MyTable(props) {
-    LoadPackets({})
-    const value = useContext(PacketContext)
+function MyMap(props) {
+    const [selectedPacket, setSelectedPacket] = useState(null)
+    mapSetSelectedPacket = setSelectedPacket
+    //console.log("map update", selectedPacket)
     return (
-        <Table striped>
-            <thead>
-                <tr>
-                    <th>Date, time (UTC)</th>
-                    <th>Coordinates, RAW packet</th>
-                </tr>
-            </thead>
-            <tbody>
-                {props.packets.map((element, index) => {
-                    return <MyRow key={index} packet={element} />
-                })}
-                {/* {props.packets.map((element, index) => {
-                    return <MyRow key={index} dateTime="2354" packet={element.toString()} />
-                })} */}
-            </tbody>
-        </Table>
+        <MapContainer center={[29.794502, -95.370513]} zoom={13} scrollWheelZoom={true}>
+            <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {selectedPacket?.gnss?.map((element, index) => {
+                return <Marker position={[element.lat, element.lon]} />
+            })}
+            {selectedPacket?.celllocate?.map((element, index) => {
+                return <Marker position={[element.lat, element.lon]} />
+            })}
+            {selectedPacket?.nearestcells?.cells?.map((element, index) => {
+                return element.opencellid?.lat && element.opencellid?.lon ? <Marker position={[element.opencellid.lat, element.opencellid.lon]} /> : null
+            })}
+            {selectedPacket?.nearestcells?.unwiredlabs?.lat && selectedPacket?.nearestcells?.unwiredlabs?.lon ? (
+                <Marker position={[selectedPacket.nearestcells.unwiredlabs.lat, selectedPacket.nearestcells.unwiredlabs.lon]} />
+            ) : null}
+        </MapContainer>
     )
 }
+
+export { mapSetSelectedPacket, MyMap }
